@@ -1,13 +1,16 @@
 package model
 
-import "time"
+import (
+	"database/sql"
+	"time"
+)
 
 type Toko struct {
 	ID        uint
 	IdUser    uint
 	User      User `gorm:"foreignKey:IdUser;references:ID"`
 	NamaToko  string
-	UrlFoto   string
+	UrlFoto   sql.NullString
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
